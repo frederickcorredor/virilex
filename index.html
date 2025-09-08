@@ -18,41 +18,40 @@
     }
 
     /* Base */
-    *{box-sizing:border-box;margin: 0px; padding: 0px;}
+    *{box-sizing:border-box;margin:0;padding:0}
     body{
       margin:0;
       font-family:Arial,Helvetica,sans-serif;
       background:var(--white);
       color:var(--text);
       line-height:1.6;
-      background-image: url(https://renovexenlinea.com/wp-content/uploads/2025/09/fondovirilex.webp);
-      background-attachment: fixed;
-      width: 100vw;
-      overflow-x: hidden;
+      background-image:url(https://renovexenlinea.com/wp-content/uploads/2025/09/fondovirilex.webp);
+      background-attachment:fixed;
+      width:100vw;
+      overflow-x:hidden;
     }
     .container{max-width:960px;margin:0 auto;padding:20px}
-    h1,h2,h3{margin:0 0 12px;color:white;font-size: 22px;}
-    p{color: white; font-size: 16px;}
+    h1,h2,h3{margin:0 0 12px;color:white;font-size:22px}
+    p{color:white;font-size:16px}
 
     /* Hero en rojo/negro */
     .hero{
       padding:40px 20px;
       text-align:center;
-      background:linear-gradient(135deg, #000000 5%, #ff000067 54%, #000000 87%);
+      background:linear-gradient(135deg,#000 5%,#ff000067 54%,#000 87%);
       color:var(--white);
       border-radius:16px;
-      border: 2px solid white;
+      border:2px solid white;
+      min-height: 90vh;
     }
-    .hero h1{color:var(--white);font-size: 21px;}
+    .hero h1{color:var(--white);font-size:21px}
     .hero p{color:#f3f3f3}
     .hero img{
       max-width:280px;
-      margin:20px auto;
-      margin-bottom: 0px;
+      margin:20px auto 0;
       display:block;
       border-radius:12px;
-      filter: drop-shadow(2px 2px 2px black);
-      
+      filter:drop-shadow(2px 2px 2px black);
     }
 
     /* Botones */
@@ -65,40 +64,39 @@
       cursor:pointer;
       text-decoration:none;
       font-size:17px;
-      box-shadow:0 2px 6px rgba(255, 255, 255, 0.766);
+      box-shadow:0 2px 6px rgba(255,255,255,.766);
       border:0;
-      position: relative;
-      background:linear-gradient(120deg,#f83131,rgba(254, 5, 5, 0.477),#67fc4de0,#25f83e);
+      position:relative;
+      background:linear-gradient(120deg,#f83131,rgba(254,5,5,.477),#67fc4de0,#25f83e);
       background-size:310% 310%;
-      transition:background-position .8s ease;
-      z-index: 2;
-      color: white;
+      transition:background-position .8s ease, transform .2s ease;
+      z-index:2;
+      color:white;
     }
-    .btn:hover{background-position:85% 25%; transform:translateY(-3px) }
+    .btn:hover{background-position:85% 25%;transform:translateY(-3px)}
     .btn:active{transform:translateY(0)}
 
     /* Secciones y tarjetas */
     .section{margin:40px 0}
-    .benefits{display:grid;gap:20px;text-align: center;}
+    .benefits{display:grid;gap:20px;text-align:center}
     .benefits div,
     .card{
-       background:linear-gradient(135deg, #000000 5%, #ffffff67 54%, #000000 87%);
-       color: white;
+      background:linear-gradient(135deg,#000 5%,#ffffff67 54%,#000 87%);
+      color:white;
       padding:20px;
       border-radius:12px;
       margin-bottom:20px;
       border:1px solid var(--border);
       box-shadow:0 2px 10px rgba(0,0,0,.04);
-
-      
     }
+    .benefits div{width:70%;text-align:left}
 
-    .benefits div{
-            width: 70%;
-            text-align: left;
+    .relativo{
+      position:relative;
     }
-
-    .relativo{position: relative; p{position: relative; z-index: 2;filter: drop-shadow(0px 0px 15px black);} img{position: absolute;z-index: 1;top: 34px;height: 98%;left: 137px;opacity: 0.85;} h2{position: relative; z-index: 2;}}
+    .relativo p{position:relative;z-index:2;filter:drop-shadow(0 0 15px black)}
+    .relativo img{position:absolute;z-index:1;top:34px;height:98%;left:137px;opacity:.85}
+    .relativo h2{position:relative;z-index:2}
 
     /* CTA central */
     .cta-center{text-align:center;margin-top:30px}
@@ -113,14 +111,19 @@
       border-top-left-radius:16px;border-top-right-radius:16px;
       max-height:90vh;overflow:auto;transition:.3s;
       box-shadow:0 -4px 20px rgba(0,0,0,.4);
-      z-index: 3;
+      z-index:3;
+
+      /* Animación de entrada */
+      transform:translateY(24px);
+      opacity:0;
+      transition:transform .3s ease, opacity .3s ease, bottom .3s ease;
     }
-    .drawer.open{bottom:0}
+    .drawer.open{bottom:0;transform:none;opacity:1}
     .drawer header{
       padding:16px;
       border-bottom:1px solid var(--border);
       display:flex;justify-content:space-between;align-items:center;
-      background: linear-gradient(135deg, #000000 5%, #ff000067 54%, #000000 87%);
+      background:linear-gradient(135deg,#000 5%,#ff000067 54%,#000 87%);
     }
 
     /* Formularios */
@@ -146,130 +149,143 @@
       box-shadow:0 4px 12px rgba(0,0,0,.25);transition:background .15s ease
     }
     .submit:hover{background:#1a1a1a}
-
     .disclaimer{font-size:12px;color:var(--muted);margin-top:8px}
-
-    #orderForm p{color: #000000;}
+    #orderForm p{color:#000}
 
     /* Carrusel de testimonios */
-.testi-carousel{position:relative;overflow:hidden}
-.testi-track{display:flex;transition:transform .5s ease}
-.testi-slide{min-width:100%;padding:10px 6px}
-.testi-slide blockquote{font-size:16px;line-height:1.6;margin-bottom:8px;color:#fff}
-.testi-slide figcaption{font-size:14px;color:#eaeaea}
+    .testi-carousel{position:relative;overflow:hidden}
+    .testi-track{display:flex;transition:transform .5s ease}
+    .testi-slide{min-width:100%;padding:10px 6px}
+    .testi-slide blockquote{font-size:16px;line-height:1.6;margin-bottom:8px;color:#fff}
+    .testi-slide figcaption{font-size:14px;color:#eaeaea}
+    .testi-dots{display:flex;gap:8px;justify-content:center;margin-top:12px}
+    .testi-dots button{
+      width:9px;height:9px;border-radius:50%;border:0;background:#ffffff55;cursor:pointer
+    }
+    .testi-dots button[aria-selected="true"]{background:#fff}
 
-.testi-dots{
-  display:flex;gap:8px;justify-content:center;margin-top:12px
-}
-.testi-dots button{
-  width:9px;height:9px;border-radius:50%;border:0;
-  background:#ffffff55;cursor:pointer
-}
-.testi-dots button[aria-selected="true"]{background:#fff}
+    /* ==== Animaciones de entrada (A11y-friendly) ==== */
+    @media (prefers-reduced-motion:no-preference){
+      .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease}
+      .reveal.is-visible{opacity:1;transform:none}
+      .fade-up{} /* por defecto */
+      .fade-down{transform:translateY(-18px)}
+      .fade-left{transform:translateX(24px)}
+      .fade-right{transform:translateX(-24px)}
+      .zoom-in{transform:scale(.96)}
+      .tilt-in{transform:perspective(800px) rotateX(8deg);transform-origin:top}
+      .reveal{transition-delay:var(--delay,0ms)}
+    }
+
+    /* Suaviza transiciones internas */
+    .card,.hero,.benefits div{will-change:transform,opacity}
   </style>
 </head>
 <body>
   <div class="container">
-    <section class="hero">
-      <h1>¿Dudas sobre tu rendimiento? Hablemos claro</h1>
-      <p>Si estás aquí es porque algo no te convence: ¿será seguro?, ¿de verdad funciona?, ¿vale la pena intentarlo? Entiendo tus preguntas… y voy a responderlas una por una.</p>
-      <img src="https://renovexenlinea.com/wp-content/uploads/2025/09/wendy2.webp" alt="VIRILEX"/>
-      <a href="#" id="openDrawer" class="btn">💚 Solicitar ahora contraentrega</a>
+    <!-- HERO -->
+    <section class="hero reveal zoom-in">
+      <h1 class="reveal fade-up" style="--delay:0ms">¿Dudas sobre tu rendimiento? Hablemos claro</h1>
+      <p class="reveal fade-up" style="--delay:120ms">Si estás aquí es porque algo no te convence: ¿será seguro?, ¿de verdad funciona?, ¿vale la pena intentarlo? Entiendo tus preguntas… y voy a responderlas una por una.</p>
+      <img class="reveal tilt-in" style="--delay:240ms" src="https://renovexenlinea.com/wp-content/uploads/2025/09/wendy2.webp" alt="VIRILEX"/>
+      <a href="#" id="openDrawer" class="btn reveal fade-up" style="--delay:360ms">💚 Solicitar ahora contraentrega</a>
     </section>
 
-    <section class="section relativo">
-      <h2>¿Qué es VIRILEX y por qué tantos lo usan?</h2>
-      <p>No es magia, tampoco una promesa vacía. VIRILEX es un apoyo natural que trabaja con tu organismo.
+    <!-- QUÉ ES -->
+    <section class="section relativo reveal fade-up" style="--delay:0ms">
+      <h2 class="reveal fade-up" style="--delay:0ms">¿Qué es VIRILEX y por qué tantos lo usan?</h2>
+      <p class="reveal fade-up" style="--delay:120ms">No es magia, tampoco una promesa vacía. VIRILEX es un apoyo natural que trabaja con tu organismo.
         <br><br> Si alguna vez sentiste que tu energía, tu confianza o tu desempeño no son los mismos, este producto puede ser el refuerzo que necesitas. 
         <br><br><strong>Lo mejor, lo pruebas sin arriesgar tu dinero, porque pagas solo al recibirlo.</strong></p>
-        <img src="https://renovexenlinea.com/wp-content/uploads/2025/04/Virilex520px-1.webp" alt="">
+      <img class="reveal fade-right" style="--delay:240ms" src="https://renovexenlinea.com/wp-content/uploads/2025/04/Virilex520px-1.webp" alt="">
     </section>
 
+    <!-- VIDEO -->
     <section class="section">
-      <h2 style="text-align: center;">Mira este Video</h2>
-      <div class="card">
-        <video id="videoHtml5" playsinline preload="metadata" controls style="aspect-ratio: 9/16;width: 100%;border-radius: 6px;">
-
-            <source src="https://renovexenlinea.com/wp-content/uploads/2025/08/0323-_1_.webm" type="video/webm">
-            Tu navegador no soporta video HTML5.
-          </video>
-
+      <h2 class="reveal fade-up" style="text-align:center;--delay:0ms">Mira este Video</h2>
+      <div class="card reveal zoom-in" style="--delay:120ms">
+        <video id="videoHtml5" playsinline preload="metadata" controls style="aspect-ratio:9/16;width:100%;border-radius:6px;">
+          <source src="https://renovexenlinea.com/wp-content/uploads/2025/08/0323-_1_.webm" type="video/webm">
+          Tu navegador no soporta video HTML5.
+        </video>
       </div>
     </section>
 
+    <!-- FAQ -->
     <section class="section">
-      <h2 style="text-align: center;">Resolvamos tus dudas más comunes</h2>
-      <div class="card">
-        <h3 style="text-align: center;">¿Si funciona?</h3>
+      <h2 class="reveal fade-up" style="text-align:center;--delay:0ms">Resolvamos tus dudas más comunes</h2>
+      <div class="card reveal fade-up" style="--delay:0ms">
+        <h3 style="text-align:center;">¿Si funciona?</h3>
         <p>Virilex trabaja donde importa, favorece la circulación, aumenta la energía y controla los efectos del estrés.</p>
       </div>
-      <div class="card">
-        <h3 style="text-align: center;">“Me da pena que alguien se entere”</h3>
+      <div class="card reveal fade-up" style="--delay:120ms">
+        <h3 style="text-align:center;">“Me da pena que alguien se entere”</h3>
         <p>Tu privacidad es nuestra prioridad. El envío es totalmente discreto, sin logos ni palabras comprometedoras en el empaque.</p>
       </div>
-      <div class="card">
-        <h3 style="text-align: center;">“Ya he probado otras cosas y no vi cambios”</h3>
+      <div class="card reveal fade-up" style="--delay:240ms">
+        <h3 style="text-align:center;">“Ya he probado otras cosas y no vi cambios”</h3>
         <p>Lo entendemos. La diferencia está en el respaldo: VIRILEX viene con asesoría personalizada. No estás solo, un especialista te orienta y hace seguimiento.</p>
       </div>
-
-          <div class="cta-center">
-      <a href="#" id="openDrawer3" class="btn">✅ Quiero mi pedido seguro contraentrega</a>
-    </div>
+      <div class="cta-center reveal fade-up" style="--delay:360ms">
+        <a href="#" id="openDrawer3" class="btn">✅ Quiero mi pedido seguro contraentrega</a>
+      </div>
     </section>
 
-    <section class="section" style="position: relative; border: solid 2px; overflow: hidden; border-radius: 16px; padding: 16px; background: linear-gradient(135deg, #000000 5%, #ff000067 54%, #000000 87%);">
-      <h2 style="text-align: center;">Beneficios que notarás</h2>
-      <img src="https://renovexenlinea.com/wp-content/uploads/2025/09/ween7.webp" alt="" style="position: absolute;height: 100%;left: -240px;transform: rotateY(180deg);">
-      <div class="benefits" style="position: relative; z-index: 2;justify-items: end;">
-        <div>
+    <!-- BENEFICIOS -->
+    <section class="section reveal fade-up" style="position:relative;border:solid 2px;overflow:hidden;border-radius:16px;padding:16px;background:linear-gradient(135deg,#000 5%,#ff000067 54%,#000 87%);--delay:0ms">
+      <h2 style="text-align:center;">Beneficios que notarás</h2>
+      <img src="https://renovexenlinea.com/wp-content/uploads/2025/09/ween7.webp" alt="" style="position:absolute;height:100%;left:-240px;transform:rotateY(180deg);">
+      <div class="benefits" style="position:relative;z-index:2;justify-items:end;">
+        <div class="reveal fade-left" style="--delay:0ms">
           <h3>🌱 Más energía</h3>
-          <p style="filter: drop-shadow();">Recupera la vitalidad que pensabas perdida.</p>
+          <p style="filter:drop-shadow();">Recupera la vitalidad que pensabas perdida.</p>
         </div>
-        <div>
+        <div class="reveal fade-left" style="--delay:120ms">
           <h3>💪 Seguridad en la intimidad</h3>
           <p>Confianza real en ti mismo y en tu relación.</p>
         </div>
-        <div>
+        <div class="reveal fade-left" style="--delay:240ms">
           <h3>🤝 Atención personalizada</h3>
           <p>No compras y te dejamos solo. Te acompañamos en el proceso.</p>
         </div>
       </div>
-      
     </section>
 
-<section class="section">
-  <h2 style="text-align: center;">Lo que dicen otros hombres como tú</h2>
-  <div class="card">
-    <div class="testi-carousel" id="testiCarousel" aria-roledescription="carousel" aria-label="Carrusel de testimonios">
-      <div class="testi-track">
-        <figure class="testi-slide" aria-label="1 de 4">
-          <blockquote>“Al principio dudaba, pero pedí un frasco contraentrega y me sorprendió. Hoy me siento más seguro con mi pareja.”</blockquote>
-          <figcaption>— Carlos, 42 años</figcaption>
-        </figure>
-        <figure class="testi-slide" aria-label="2 de 4">
-          <blockquote>“Pensé que sería lo mismo de siempre, pero noté resultados y lo mejor: pagué al recibirlo.”</blockquote>
-          <figcaption>— Andrés, 36 años</figcaption>
-        </figure>
-        <figure class="testi-slide" aria-label="3 de 4">
-          <blockquote>“A la segunda semana empecé a notar más energía y control. El acompañamiento del especialista marcó la diferencia.”</blockquote>
-          <figcaption>— Felipe, 39 años</figcaption>
-        </figure>
-        <figure class="testi-slide" aria-label="4 de 4">
-          <blockquote>“Me preocupaba la discreción. Llegó sin logos y el proceso fue claro. Recuperé la confianza con mi pareja.”</blockquote>
-          <figcaption>— Julián, 47 años</figcaption>
-        </figure>
+    <!-- TESTIMONIOS (Carrusel) -->
+    <section class="section">
+      <h2 class="reveal fade-up" style="text-align:center;--delay:0ms">Lo que dicen otros hombres como tú</h2>
+      <div class="card reveal zoom-in" style="--delay:120ms">
+        <div class="testi-carousel" id="testiCarousel" aria-roledescription="carousel" aria-label="Carrusel de testimonios">
+          <div class="testi-track">
+            <figure class="testi-slide" aria-label="1 de 4">
+              <blockquote>“Al principio dudaba, pero pedí un frasco contraentrega y me sorprendió. Hoy me siento más seguro con mi pareja.”</blockquote>
+              <figcaption>— Carlos, 42 años</figcaption>
+            </figure>
+            <figure class="testi-slide" aria-label="2 de 4">
+              <blockquote>“Pensé que sería lo mismo de siempre, pero noté resultados y lo mejor: pagué al recibirlo.”</blockquote>
+              <figcaption>— Andrés, 36 años</figcaption>
+            </figure>
+            <figure class="testi-slide" aria-label="3 de 4">
+              <blockquote>“A la segunda semana empecé a notar más energía y control. El acompañamiento del especialista marcó la diferencia.”</blockquote>
+              <figcaption>— Felipe, 39 años</figcaption>
+            </figure>
+            <figure class="testi-slide" aria-label="4 de 4">
+              <blockquote>“Me preocupaba la discreción. Llegó sin logos y el proceso fue claro. Recuperé la confianza con mi pareja.”</blockquote>
+              <figcaption>— Julián, 47 años</figcaption>
+            </figure>
+          </div>
+          <div class="testi-dots" role="tablist" aria-label="Paginación de testimonios"></div>
+        </div>
       </div>
+    </section>
 
-      <div class="testi-dots" role="tablist" aria-label="Paginación de testimonios"></div>
-    </div>
-  </div>
-</section>
-
-    <div class="cta-center">
+    <!-- CTA FINAL -->
+    <div class="cta-center reveal fade-up" style="--delay:120ms">
       <a href="#" id="openDrawer2" class="btn">✅ Quiero mi pedido seguro contraentrega</a>
     </div>
   </div>
 
+  <!-- DRAWER -->
   <div id="backdrop" class="backdrop"></div>
   <div id="drawer" class="drawer">
     <header>
@@ -312,6 +328,7 @@
   </div>
 
   <script>
+    /* ======= Precios & cálculo ======= */
     const PRICE_VIRILEX = 89900;
     const PRICE_TARDOMAX = 54900;
     const qty = document.getElementById('qtyVirilex');
@@ -320,7 +337,6 @@
     const hiddenTotal = document.getElementById('hiddenTotal');
 
     function fmt(n){return new Intl.NumberFormat('es-CO',{style:'currency',currency:'COP',maximumFractionDigits:0}).format(n)}
-
     function calc(){
       let q = parseInt(qty.value)||1;
       let total = q * PRICE_VIRILEX;
@@ -328,11 +344,11 @@
       totalSpan.textContent = fmt(total);
       hiddenTotal.value = total;
     }
-
-    qty.addEventListener('input',calc);
-    upsell.addEventListener('change',calc);
+    qty?.addEventListener('input',calc);
+    upsell?.addEventListener('change',calc);
     calc();
 
+    /* ======= Drawer ======= */
     const backdrop=document.getElementById('backdrop');
     const drawer=document.getElementById('drawer');
     function openDrawer(){drawer.classList.add('open');backdrop.classList.add('show');calc();}
@@ -349,66 +365,95 @@
       closeDrawer();
     });
 
+    /* ======= Carrusel de Testimonios ======= */
+    (function(){
+      const root = document.getElementById('testiCarousel');
+      if(!root) return;
 
-    /* === Carrusel de Testimonios === */
-(function(){
-  const root = document.getElementById('testiCarousel');
-  if(!root) return;
+      const track = root.querySelector('.testi-track');
+      const slides = Array.from(track.children);
+      const dotsWrap = root.querySelector('.testi-dots');
 
-  const track = root.querySelector('.testi-track');
-  const slides = Array.from(track.children);
-  const dotsWrap = root.querySelector('.testi-dots');
+      // Crear dots
+      slides.forEach((_,i)=>{
+        const b=document.createElement('button');
+        b.type='button';
+        b.setAttribute('role','tab');
+        b.setAttribute('aria-label',`Ir al testimonio ${i+1}`);
+        b.addEventListener('click',()=>goTo(i,true));
+        dotsWrap.appendChild(b);
+      });
 
-  // Crear dots
-  slides.forEach((_,i)=>{
-    const b=document.createElement('button');
-    b.type='button';
-    b.setAttribute('role','tab');
-    b.setAttribute('aria-label',`Ir al testimonio ${i+1}`);
-    b.addEventListener('click',()=>goTo(i,true));
-    dotsWrap.appendChild(b);
-  });
+      let index=0, auto=null, touchStartX=0, touchDiff=0;
+      function updateDots(){
+        const dots = Array.from(dotsWrap.children);
+        dots.forEach((d,i)=>d.setAttribute('aria-selected', i===index ? 'true' : 'false'));
+      }
+      function goTo(i,manual){
+        index=(i+slides.length)%slides.length;
+        track.style.transform=`translateX(-${index*100}%)`;
+        updateDots();
+        if(manual){restartAuto();}
+      }
 
-  let index=0, auto=null, touchStartX=0, touchDiff=0;
-  function updateDots(){
-    const dots = Array.from(dotsWrap.children);
-    dots.forEach((d,i)=>d.setAttribute('aria-selected', i===index ? 'true' : 'false'));
-  }
-  function goTo(i,manual){
-    index=(i+slides.length)%slides.length;
-    track.style.transform=`translateX(-${index*100}%)`;
-    updateDots();
-    if(manual){restartAuto();}
-  }
+      function startAuto(){
+        if(auto) return;
+        auto=setInterval(()=>goTo(index+1,false), 5000);
+      }
+      function stopAuto(){
+        clearInterval(auto); auto=null;
+      }
+      function restartAuto(){ stopAuto(); startAuto(); }
 
-  function startAuto(){
-    if(auto) return;
-    auto=setInterval(()=>goTo(index+1,false), 5000);
-  }
-  function stopAuto(){
-    clearInterval(auto); auto=null;
-  }
-  function restartAuto(){ stopAuto(); startAuto(); }
+      // Pausa en hover/foco
+      root.addEventListener('mouseenter',stopAuto);
+      root.addEventListener('mouseleave',startAuto);
+      root.addEventListener('focusin',stopAuto);
+      root.addEventListener('focusout',startAuto);
 
-  // Pausa en hover/foco
-  root.addEventListener('mouseenter',stopAuto);
-  root.addEventListener('mouseleave',startAuto);
-  root.addEventListener('focusin',stopAuto);
-  root.addEventListener('focusout',startAuto);
+      // Swipe básico
+      track.addEventListener('touchstart',e=>{touchStartX=e.touches[0].clientX; touchDiff=0;},{passive:true});
+      track.addEventListener('touchmove',e=>{touchDiff=e.touches[0].clientX - touchStartX;},{passive:true});
+      track.addEventListener('touchend',()=>{
+        if(Math.abs(touchDiff)>40){
+          goTo(index + (touchDiff<0 ? 1 : -1), true);
+        }
+      });
 
-  // Swipe básico
-  track.addEventListener('touchstart',e=>{touchStartX=e.touches[0].clientX; touchDiff=0;},{passive:true});
-  track.addEventListener('touchmove',e=>{touchDiff=e.touches[0].clientX - touchStartX;},{passive:true});
-  track.addEventListener('touchend',()=>{
-    if(Math.abs(touchDiff)>40){
-      goTo(index + (touchDiff<0 ? 1 : -1), true);
-    }
-  });
+      // Inicializar
+      goTo(0,false);
+      startAuto();
+    })();
 
-  // Inicializar
-  goTo(0,false);
-  startAuto();
-})();
+    /* ======= Animaciones al entrar en viewport ======= */
+    (function(){
+      const els = document.querySelectorAll('.reveal');
+      if(!('IntersectionObserver' in window) || !els.length) {
+        els.forEach(el=>el.classList.add('is-visible'));
+        return;
+      }
+
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {root:null, threshold:0.15, rootMargin:'0px 0px -10% 0px'});
+
+      // Auto-stagger por contenedor
+      const groups = new Map();
+      document.querySelectorAll('.reveal').forEach(el=>{
+        const parent = el.closest('.section') || el.parentElement;
+        if(!groups.has(parent)) groups.set(parent, 0);
+        const idx = groups.get(parent);
+        if(!el.style.getPropertyValue('--delay')) el.style.setProperty('--delay', (idx*120)+'ms');
+        groups.set(parent, idx+1);
+        io.observe(el);
+      });
+    })();
   </script>
 </body>
 </html>
+
