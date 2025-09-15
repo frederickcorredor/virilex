@@ -308,10 +308,10 @@
     </header>
     <form id="orderForm">
       <div class="resume">
-        <p><strong>Potenciador Virilex</strong> 10 tab</p>
+        <p><strong>Potenciador Virilex 10 tab</strong> $ 65.000</p>
         <label>Cantidad</label>
         <input type="number" id="qtyVirilex" name="virilex_cantidad" min="1" value="1">
-        <p><strong>Llévate un retardante:</strong> ¿Quieres agregar TARDOMAX para potenciar aún más tu resultado?</p>
+        <p><strong>Llévate un retardante:</strong> <br> Agrega TARDOMAX por solo $ 25.000 adicionales para mejorar aún más tu resultado</p>
         <select id="addTardomax" name="tardomax">
           <option value="no" selected>No, prefiero solo VIRILEX</option>
           <option value="si">Sí, agregar 1 TARDOMAX</option>
@@ -343,8 +343,8 @@
 
   <script>
     /* ======= Precios & cálculo ======= */
-    const PRICE_VIRILEX = 89900;
-    const PRICE_TARDOMAX = 54900;
+    const PRICE_VIRILEX = 65000;
+    const PRICE_TARDOMAX = 25000;
     const qty = document.getElementById('qtyVirilex');
     const upsell = document.getElementById('addTardomax');
     const totalSpan = document.getElementById('grandTotal');
