@@ -33,7 +33,7 @@
     }
     .container{max-width:960px;margin:0 auto;padding:20px;overflow-x: hidden;}
     h1,h2,h3{margin:0 0 12px;color:white;font-size:22px}
-    p{color:white;font-size:16px}
+    p{color:white;font-size:16px;}
 
     /* Hero en rojo/negro */
     .hero{
@@ -53,36 +53,49 @@
       display:block;
       border-radius:12px;
       filter:drop-shadow(2px 2px 2px black);
+      position: absolute;
+      bottom: 0px;
     }
 
     /* Botones */
     .btn{
       display:inline-block;
       color:var(--red);
-      padding:6px 20px;
+      padding:16px 24px;
       border-radius:10px;
-      font-weight:700;
+      font-weight:800;
       cursor:pointer;
       text-decoration:none;
       font-size:17px;
       box-shadow:0 2px 6px rgba(255,255,255,.766);
       border:0;
       position:relative;
-      background:linear-gradient(120deg,#f83131,rgba(254,5,5,.477),#67fc4de0,#25f83e);
+      background:linear-gradient(120deg,#ff0000,#ff0000,#1eb903,#25f83e);
       background-size:310% 310%;
       transition:background-position .8s ease, transform .2s ease;
       z-index:2;
       color:white;
+      position: fixed;
+      bottom: 0px;
+      left: 0px;
+      width: 100%;  
     }
     .btn:hover{background-position:85% 25%;transform:translateY(-3px)}
     .btn:active{transform:translateY(0)}
+
+    #closeDrawer{
+      width: 60px;
+      height: 60px;
+      top: 20px;
+      left: 80vw;
+    }
 
     /* Secciones y tarjetas */
     .section{margin:40px 0}
     .benefits{display:grid;gap:20px;text-align:center}
     .benefits div,
     .card{
-      background:linear-gradient(135deg,#000 5%,#ffffff67 54%,#000 87%);
+      background:linear-gradient(135deg,#000 5%,#ff000085 54%,#000 87%);
       color:white;
       padding:20px;
       border-radius:12px;
@@ -123,8 +136,8 @@
     .drawer header{
       padding:16px;
       border-bottom:1px solid var(--border);
-      display:flex;justify-content:space-between;align-items:center;
-      background:linear-gradient(135deg,#000 5%,#ff000067 54%,#000 87%);
+      display:flex;justify-content:center;align-items:center;
+      background:linear-gradient(135deg,#000 5%,#ff0000ce 54%,#000 87%);
     }
 
     /* Formularios */
@@ -189,7 +202,7 @@
       <h1 class="reveal fade-up" style="--delay:0ms">¿Dudas sobre tu rendimiento? Hablemos claro</h1>
       <p class="reveal fade-up" style="--delay:120ms">Si estás aquí es porque algo no te convence: ¿será seguro?, ¿de verdad funciona?, ¿vale la pena intentarlo? Entiendo tus preguntas… y voy a responderlas una por una.</p>
       <img class="reveal tilt-in" style="--delay:240ms" src="https://renovexenlinea.com/wp-content/uploads/2025/09/wendy2.webp" alt="VIRILEX"/>
-      <a href="#" id="openDrawer" class="btn reveal fade-up" style="--delay:360ms">💚 Solicitar ahora contraentrega</a>
+
     </section>
 
     <!-- QUÉ ES -->
@@ -354,7 +367,6 @@
     const drawer=document.getElementById('drawer');
     function openDrawer(){drawer.classList.add('open');backdrop.classList.add('show');calc();}
     function closeDrawer(){drawer.classList.remove('open');backdrop.classList.remove('show');}
-    document.getElementById('openDrawer').onclick=openDrawer;
     document.getElementById('openDrawer2').onclick=openDrawer;
     document.getElementById('openDrawer3').onclick=openDrawer;
     document.getElementById('closeDrawer').onclick=closeDrawer;
