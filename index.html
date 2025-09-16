@@ -34,7 +34,7 @@
     }
     .container{max-width:960px;margin:0 auto;padding:20px;overflow-x: hidden;}
     h1,h2,h3{margin:0 0 12px;color:white;font-size:22px;text-wrap: balance;}
-    p{color:white;font-size:16px; text-wrap: balance;}
+    p{color:white;font-size:16px; text-wrap: balance; font-weight: 700;}
 
     /* Hero en rojo/negro */
     .hero{
@@ -45,7 +45,6 @@
       border-radius:16px;
       border:2px solid white;
       min-height: 90vh;
-      position: relative;
     }
     .hero h1{color:var(--white);font-size:21px}
     .hero p{color:#f3f3f3}
@@ -57,14 +56,12 @@
       filter:drop-shadow(2px 2px 2px black);
       position: absolute;
       bottom: 0px;
-      left: 50%;
-      transform: translateX(-50%);
     }
 
-    /* Botón CTA (fijo inferior) */
+    /* Botones */
     .btn{
       display:inline-block;
-      color:#fff;
+      color:var(--red);
       padding:16px 24px;
       border-radius:10px;
       font-weight:800;
@@ -73,32 +70,28 @@
       font-size:17px;
       box-shadow:0 2px 6px rgba(255,255,255,.766);
       border:0;
+      position:relative;
       background:linear-gradient(120deg,#ff0000,#ff0000,#1eb903,#25f83e);
       background-size:310% 310%;
       transition:background-position .8s ease, transform .2s ease;
       z-index:2;
+      color:white;
       position: fixed;
       bottom: 0px;
       left: 0px;
-      width: 100%;
-      text-align:center;
+      width: 100%;  
     }
     .btn:hover{background-position:85% 25%;transform:translateY(-3px)}
     .btn:active{transform:translateY(0)}
-    #openDrawer2{
-      -webkit-animation: heartbeat 3.5s ease-in-out infinite both;
-      animation: heartbeat 3.5s ease-in-out infinite both;
-      border-radius:14px;
-    }
 
-    /* Botón de cerrar del Drawer (no usa .btn para evitar estilo fijo) */
-    .icon-btn{
-      position:absolute; right:12px; top:12px;
-      width:40px; height:40px;
-      display:grid; place-items:center;
-      border-radius:10px; border:0; cursor:pointer;
-      background:#fff; color:#e11d2a; font-weight:900;
-      box-shadow:0 2px 6px rgba(0,0,0,.25);
+    #openDrawer2{-webkit-animation: heartbeat 3.5s ease-in-out  infinite both;
+	        animation: heartbeat 3.5s ease-in-out  infinite both; border-radius:60px;}
+
+    #closeDrawer{
+      width: 60px;
+      height: 60px;
+      top: 20px;
+      left: 80vw;
     }
 
     /* Secciones y tarjetas */
@@ -108,7 +101,7 @@
     .card{
       background:linear-gradient(135deg,#000 5%,#ff0000cf 54%,#000 87%);
       color:white;
-      padding:20px;
+      padding:16px;
       border-radius:12px;
       margin-bottom:20px;
       border:1px solid var(--border);
@@ -116,8 +109,10 @@
     }
     .benefits div{width:70%;text-align:left}
 
-    .relativo{position:relative}
-    .relativo p{position:relative;z-index:2;filter:drop-shadow(0 0 15px black);background:#00000057;padding:16px;border-radius:16px}
+    .relativo{
+      position:relative;
+    }
+    .relativo p{position:relative;z-index:2;filter:drop-shadow(0 0 15px black)}
     .relativo img{position:absolute;z-index:1;top:34px;height:98%;left:137px;opacity:.85}
     .relativo h2{position:relative;z-index:2}
 
@@ -143,12 +138,10 @@
     }
     .drawer.open{bottom:0;transform:none;opacity:1}
     .drawer header{
-      position:sticky; top:0; z-index:2;
       padding:16px;
       border-bottom:1px solid var(--border);
       display:flex;justify-content:center;align-items:center;
       background:linear-gradient(135deg,#000 5%,#ff0000ce 54%,#000 87%);
-      color:#fff; border-top-left-radius:16px;border-top-right-radius:16px;
     }
 
     /* Formularios */
@@ -206,22 +199,158 @@
     .card,.hero,.benefits div{will-change:transform,opacity}
 
     /**
-     * animation heartbeat
-     */
-    @-webkit-keyframes heartbeat {
-      from { transform: scale(1); transform-origin: center; animation-timing-function: ease-out; }
-      10% { transform: scale(0.91); animation-timing-function: ease-in; }
-      17% { transform: scale(0.98); animation-timing-function: ease-out; }
-      33% { transform: scale(0.87); animation-timing-function: ease-in; }
-      45% { transform: scale(1); animation-timing-function: ease-out; }
-    }
-    @keyframes heartbeat {
-      from { transform: scale(1); transform-origin: center; animation-timing-function: ease-out; }
-      10% { transform: scale(0.91); animation-timing-function: ease-in; }
-      17% { transform: scale(0.98); animation-timing-function: ease-out; }
-      33% { transform: scale(0.87); animation-timing-function: ease-in; }
-      45% { transform: scale(1); animation-timing-function: ease-out; }
-    }
+ * ----------------------------------------
+ * animation heartbeat
+ * ----------------------------------------
+ */
+@-webkit-keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: scale(0.91);
+            transform: scale(0.91);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: scale(0.98);
+            transform: scale(0.98);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: scale(0.87);
+            transform: scale(0.87);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+@keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: scale(0.91);
+            transform: scale(0.91);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: scale(0.98);
+            transform: scale(0.98);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: scale(0.87);
+            transform: scale(0.87);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+
+/* Borde luminoso animado (rotación del pseudo-elemento) */
+.benefits .reveal.fade-left{
+  position: relative;
+  border: 1px solid transparent;
+  border-radius: 12px;
+}
+
+.benefits .reveal.fade-left::before{
+  content:"";
+  position:absolute;
+  inset:-2px;                 /* grosor del “aro” */
+  border-radius:14px;         /* 12 + 2 */
+  padding:2px;
+  background: conic-gradient(
+    from 0turn,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,.9) 8%,
+    rgba(255,0,0,.9) 12%,
+    rgba(255,255,255,0) 16%,
+    rgba(255,255,255,0) 100%
+  );
+  /* máscara para que solo se vea el borde */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+
+  z-index:1;
+  pointer-events:none;
+  filter:
+    drop-shadow(0 0 6px rgba(255,0,0,.55))
+    drop-shadow(0 0 12px rgba(255,255,255,.35));
+
+  transform: rotate(0deg);
+  transform-origin: 50% 50%;
+  animation: border-spin 9s linear infinite;
+}
+
+/* más velocidad al hover (opcional) */
+.benefits .reveal.fade-left:hover::before{
+  animation-duration: 9.2s;
+}
+
+@keyframes border-spin{
+  to { transform: rotate(360deg); }
+}
+
+/* Respeto a “reducir movimiento” */
+@media (prefers-reduced-motion: reduce){
+  .benefits .reveal.fade-left::before{
+    animation: none;
+  }
+}
+
+/* Registrar la custom property para que sea animable */
+@property --a {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0turn;
+}
+
+.benefits .reveal.fade-left::before{
+  background: conic-gradient(
+    from var(--a),
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,.9) 8%,
+    rgba(255,0,0,.9) 12%,
+    rgba(255,255,255,0) 16%,
+    rgba(255,255,255,0) 100%
+  );
+  animation: beneficios-sweep 6s linear infinite; /* en vez de border-spin */
+}
+
+@keyframes beneficios-sweep{
+  to { --a: 1turn; }
+}
+
+
   </style>
 </head>
 <body>
@@ -231,22 +360,23 @@
       <h1 class="reveal fade-up" style="--delay:0ms">¿Dudas sobre tu rendimiento? <br> Hablemos claro</h1>
       <p class="reveal fade-up" style="--delay:120ms">Si estás aquí es porque algo no te convence: ¿será seguro?, ¿de verdad funciona?, ¿vale la pena intentarlo? Entiendo tus preguntas… y voy a responderlas una por una.</p>
       <img class="reveal tilt-in" style="--delay:240ms" src="https://renovexenlinea.com/wp-content/uploads/2025/09/wendy2.webp" alt="VIRILEX"/>
+
     </section>
 
     <!-- QUÉ ES -->
     <section class="section relativo reveal fade-up" style="--delay:0ms">
       <h2 class="reveal fade-up" style="--delay:0ms">¿Qué es VIRILEX y por qué tantos lo usan?</h2>
-      <p class="reveal fade-up" style="--delay:120ms;">No es magia, tampoco una promesa vacía. VIRILEX es un apoyo natural que trabaja con tu organismo.
+      <p class="reveal fade-up" style="--delay:120ms;background: #00000057;padding: 16px;border-radius: 16px;">No es magia, tampoco una promesa vacía. VIRILEX es un apoyo natural que trabaja con tu organismo.
         <br><br> Si alguna vez sentiste que tu energía, tu confianza o tu desempeño no son los mismos, este producto puede ser el refuerzo que necesitas. 
         <br><br><strong>Lo mejor, lo pruebas sin arriesgar tu dinero, porque pagas solo al recibirlo.</strong></p>
-      <img class="reveal fade-right" style="--delay:240ms" src="https://renovexenlinea.com/wp-content/uploads/2025/04/Virilex520px-1.webp" alt="Frasco Virilex 10 tabletas">
+      <img class="reveal fade-right" style="--delay:240ms" src="https://renovexenlinea.com/wp-content/uploads/2025/04/Virilex520px-1.webp" alt="">
     </section>
 
     <!-- VIDEO -->
     <section class="section">
       <h2 class="reveal fade-up" style="text-align:center;--delay:0ms">Mira este Video</h2>
       <div class="card reveal zoom-in" style="--delay:120ms">
-        <video id="videoHtml5" playsinline preload="metadata" controls style="aspect-ratio:9/16;width:100%;border-radius:6px;" controlslist="nodownload noplaybackrate">
+        <video id="videoHtml5" playsinline preload="metadata" controls style="aspect-ratio:9/16;width:100%;border-radius:6px;">
           <source src="https://renovexenlinea.com/wp-content/uploads/2025/08/0323-_1_.webm" type="video/webm">
           Tu navegador no soporta video HTML5.
         </video>
@@ -268,7 +398,9 @@
         <h3 style="text-align:center;">“Ya he probado otras cosas y no vi cambios”</h3>
         <p>Lo entendemos. La diferencia está en el respaldo: VIRILEX viene con asesoría personalizada. No estás solo, un especialista te orienta y hace seguimiento.</p>
       </div>
-      <div class="cta-center reveal fade-up" style="--delay:360ms"></div>
+      <div class="cta-center reveal fade-up" style="--delay:360ms">
+
+      </div>
     </section>
 
     <!-- BENEFICIOS -->
@@ -327,18 +459,17 @@
 
   <!-- DRAWER -->
   <div id="backdrop" class="backdrop"></div>
-  <div id="drawer" class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+  <div id="drawer" class="drawer">
     <header>
-      <h2 id="drawerTitle">Completa tu pedido</h2>
-      <button id="closeDrawer" class="icon-btn" aria-label="Cerrar formulario">✕</button>
+      <h2>Completa tu pedido</h2>
+      <button id="closeDrawer" class="btn" style="background:white;color:red;">X</button>
     </header>
-    <form id="orderForm" novalidate>
-      <div class="resume" aria-live="polite">
+    <form id="orderForm">
+      <div class="resume">
         <p><strong>Potenciador Virilex 10 tab</strong> $ 65.000</p>
-        <label for="qtyVirilex">Cantidad</label>
-        <input type="number" id="qtyVirilex" name="virilex_cantidad" min="1" value="1" inputmode="numeric" required>
+        <label>Cantidad</label>
+        <input type="number" id="qtyVirilex" name="virilex_cantidad" min="1" value="1">
         <p><strong>Llévate un retardante:</strong> <br> Agrega TARDOMAX por solo $ 25.000 adicionales para mejorar aún más tu resultado</p>
-        <label class="sr-only" for="addTardomax" style="position:absolute;left:-9999px">Agregar TARDOMAX</label>
         <select id="addTardomax" name="tardomax">
           <option value="no" selected>No, prefiero solo VIRILEX</option>
           <option value="si">Sí, agregar 1 TARDOMAX</option>
@@ -347,25 +478,19 @@
       </div>
 
       <label for="nombre">Nombre completo</label>
-      <input id="nombre" name="nombre" autocomplete="name" required>
-
+      <input id="nombre" name="nombre" required>
       <label for="correo">Correo</label>
-      <input id="correo" type="email" name="correo" autocomplete="email" required>
-
+      <input id="correo" type="email" name="correo" required>
       <label for="whatsapp">Número de WhatsApp</label>
-      <input id="whatsapp" type="tel" name="whatsapp" autocomplete="tel" inputmode="tel" placeholder="3001234567" pattern="[3][0-9]{9}" required>
-
+      <input id="whatsapp" type="tel" name="whatsapp" required>
       <label for="departamento">Departamento</label>
-      <input id="departamento" name="departamento" autocomplete="address-level1" required>
-
+      <input id="departamento" name="departamento" required>
       <label for="municipio">Municipio</label>
-      <input id="municipio" name="municipio" autocomplete="address-level2" required>
-
+      <input id="municipio" name="municipio" required>
       <label for="ciudad">Ciudad</label>
-      <input id="ciudad" name="ciudad" autocomplete="address-level2" required>
-
+      <input id="ciudad" name="ciudad" required>
       <label for="direccion">Dirección exacta</label>
-      <input id="direccion" name="direccion" autocomplete="address-line1" required>
+      <input id="direccion" name="direccion" required>
 
       <input type="hidden" id="hiddenTotal" name="total_estimado">
 
@@ -385,7 +510,7 @@
 
     function fmt(n){return new Intl.NumberFormat('es-CO',{style:'currency',currency:'COP',maximumFractionDigits:0}).format(n)}
     function calc(){
-      let q = Math.max(1, parseInt(qty.value)||1);
+      let q = parseInt(qty.value)||1;
       let total = q * PRICE_VIRILEX;
       if(upsell.value==='si'){ total += PRICE_TARDOMAX }
       totalSpan.textContent = fmt(total);
@@ -403,6 +528,57 @@
     document.getElementById('openDrawer2').onclick=openDrawer;
     document.getElementById('closeDrawer').onclick=closeDrawer;
     backdrop.onclick=closeDrawer;
+
+    const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzJr9lDUyfR3xx2jXv10SrLCwhgJbdQ3N2KriVCWnwK9W_-GYqjiWmJ-j8FGkLfLFcarA/exec';
+
+document.getElementById('orderForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const form = e.currentTarget;
+
+  // Armo el paquete con los mismos nombres de tus inputs
+  const payload = {
+    nombre: form.nombre.value.trim(),
+    correo: form.correo.value.trim(),
+    whatsapp: form.whatsapp.value.trim(),
+    departamento: form.departamento.value.trim(),
+    municipio: form.municipio.value.trim(),
+    ciudad: form.ciudad.value.trim(),
+    direccion: form.direccion.value.trim(),
+    virilex_cantidad: document.getElementById('qtyVirilex').value,
+    tardomax: document.getElementById('addTardomax').value, // 'si' | 'no'
+    total_estimado: document.getElementById('hiddenTotal').value,
+    page_url: location.href,
+    user_agent: navigator.userAgent
+  };
+
+  // Validación mínima
+  if (!payload.nombre || !payload.whatsapp || !payload.direccion) {
+    alert('Por favor completa nombre, WhatsApp y dirección.');
+    return;
+  }
+
+  try {
+    const resp = await fetch(WEB_APP_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)       // enviamos JSON
+    });
+
+    // Si tu Web App quedó bien publicado, aquí tendrás respuesta legible:
+    const data = await resp.json().catch(() => ({}));
+    if (data.ok) {
+      alert('✅ Pedido registrado. Te contactaremos para confirmar.');
+      form.reset();
+      calc();   // recalcula el total
+      closeDrawer();
+    } else {
+      alert('❌ No pudimos registrar el pedido (Apps Script). Intenta de nuevo.');
+    }
+  } catch (err) {
+    console.error(err);
+    alert('❌ Error de conexión. Revisa tu internet o la URL del Web App.');
+  }
+});
 
     /* ======= Carrusel de Testimonios ======= */
     (function(){
@@ -453,7 +629,11 @@
       // Swipe básico
       track.addEventListener('touchstart',e=>{touchStartX=e.touches[0].clientX; touchDiff=0;},{passive:true});
       track.addEventListener('touchmove',e=>{touchDiff=e.touches[0].clientX - touchStartX;},{passive:true});
-      track.addEventListener('touchend',()=>{ if(Math.abs(touchDiff)>40){ goTo(index + (touchDiff<0 ? 1 : -1), true); } });
+      track.addEventListener('touchend',()=>{
+        if(Math.abs(touchDiff)>40){
+          goTo(index + (touchDiff<0 ? 1 : -1), true);
+        }
+      });
 
       // Inicializar
       goTo(0,false);
@@ -489,55 +669,8 @@
       });
     })();
 
-    /* ======= Envío a Google Sheets (Apps Script) ======= */
-    const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwg4On9K8aqR8nOmbKVpjI2qKYVoF3aC2S2B5zFloO3p6Cf4LYNmJxjck9iWCMOkV2h/exec';
-    const form = document.getElementById('orderForm');
 
-    function putUTMs(fd){
-      const sp = new URLSearchParams(location.search);
-      ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k=>{
-        if(sp.get(k)) fd.set(k, sp.get(k));
-      });
-    }
-
-    form?.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-
-      if(!form.checkValidity()){
-        form.reportValidity();
-        return;
-      }
-
-      // Construir payload x-www-form-urlencoded (evita preflight CORS)
-      const fd = new FormData(form);
-      fd.set('page_url', location.href);
-      fd.set('user_agent', navigator.userAgent);
-      fd.set('virilex_cantidad', document.getElementById('qtyVirilex').value || '1');
-      fd.set('tardomax', document.getElementById('addTardomax').value || 'no');
-      fd.set('total_estimado', document.getElementById('hiddenTotal').value || '');
-      putUTMs(fd);
-
-      try {
-        const res = await fetch(WEB_APP_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-          body: new URLSearchParams([...fd.entries()]).toString()
-        });
-        const data = await res.json();
-
-        if (data.ok) {
-          alert('✅ Pedido registrado. Te contactaremos para confirmar.');
-          closeDrawer();
-          form.reset();
-          calc();
-        } else {
-          alert('⚠️ Ocurrió un error al guardar. Intenta de nuevo.\n' + (data.error || ''));
-        }
-      } catch (err) {
-        alert('❌ Error de red. Revisa tu conexión e intenta otra vez.');
-        console.error(err);
-      }
-    });
+    
   </script>
 </body>
 </html>
