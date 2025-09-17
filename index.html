@@ -293,6 +293,8 @@
     rgba(255,255,255,0) 16%,
     rgba(255,255,255,0) 100%
   );
+
+  
   /* máscara para que solo se vea el borde */
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
@@ -351,6 +353,14 @@
 }
 
 
+.arrow-down-svg svg{
+  display:inline-block;
+  vertical-align: middle;
+  	-webkit-animation: heartbeat 1.5s ease-in-out infinite both;
+	        animation: heartbeat 1.5s ease-in-out infinite both;
+}
+
+
   </style>
 </head>
 <body>
@@ -374,7 +384,12 @@
 
     <!-- VIDEO -->
     <section class="section">
-      <h2 class="reveal fade-up" style="text-align:center;--delay:0ms;font-size: 24px;">MIRA ESTE VIDEO</h2>
+      <h2 class="reveal fade-up" style="text-align:center;--delay:0ms;font-size: 24px;">MIRA ESTE VIDEO <br>  <span class="arrow-down-svg" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="gold" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="5" x2="12" y2="19"></line>
+      <polyline points="19 12 12 19 5 12"></polyline>
+    </svg>
+  </span></h2>
       <div class="card reveal zoom-in" style="--delay:120ms">
         <video id="videoHtml5" playsinline preload="metadata" controls style="aspect-ratio:9/16;width:100%;border-radius:6px;">
           <source src="https://renovexenlinea.com/wp-content/uploads/2025/08/0323-_1_.webm" type="video/webm">
