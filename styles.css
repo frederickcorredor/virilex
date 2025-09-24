@@ -1,0 +1,143 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Poppins', sans-serif;
+}
+
+@font-face {
+    font-family: 'PerfectlyVintages';
+    src: url('PerfectlyVintages.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    margin: 6px;
+    width: 100%;
+    min-height: 200vh;
+    background: linear-gradient(135deg, #000 5%, #2b70a9 54%, #000 87%);
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'PerfectlyVintages', serif;
+    font-size: 3rem; /* ajusta el tamaño */
+    font-weight: normal;
+    color: #fdad2e;
+    text-align: center;
+}
+
+
+
+
+/*botones*/
+.btn{
+      display:inline-block;
+      color:green;
+      padding:16px 24px;
+      border-radius:10px;
+      font-weight:800;
+      cursor:pointer;
+      text-decoration:none;
+      font-size:17px;
+      box-shadow:0 2px 6px rgba(255,255,255,.766);
+      border:0;
+      position:relative;
+      background:linear-gradient(120deg,#ff0000,#ff0000,#1eb903,#25f83e);
+      background-size:310% 310%;
+      transition:background-position .8s ease, transform .2s ease;
+      z-index:2;
+      color:white;
+      position: fixed;
+      bottom: 12px;
+      left: 0px;
+      width: 100%;
+    }
+
+
+    .btn:hover{background-position:85% 25%;transform:translateY(-3px)}
+    .btn:active{transform:translateY(0)}
+
+    #openDrawer2{-webkit-animation: heartbeat 3.5s ease-in-out  infinite both;
+	        animation: heartbeat 3.5s ease-in-out  infinite both; border-radius:60px;}
+
+    #closeDrawer{
+      width: 60px;
+      height: 60px;
+      top: 20px;
+      left: 80vw;
+    }
+
+
+    /*formulario*/
+
+    /* Drawer / Modal inferior */
+    .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none}
+    .backdrop.show{display:block}
+
+    .drawer{
+      position:fixed;left:0;right:0;bottom:-100%;
+      background:white;
+      border-top-left-radius:16px;border-top-right-radius:16px;
+      max-height:90vh;overflow:auto;transition:.3s;
+      box-shadow:0 -4px 20px rgba(0,0,0,.4);
+      z-index:3;
+
+      /* Animación de entrada */
+      transform:translateY(24px);
+      opacity:0;
+      transition:transform .3s ease, opacity .3s ease, bottom .3s ease;
+    }
+    .drawer.open{bottom:0;transform:none;opacity:1}
+    .drawer header{
+      padding:16px;
+      border-bottom:1px solid var(--border);
+      display:flex;justify-content:center;align-items:center;
+      background:linear-gradient(135deg,#000 5%,#ff0000ce 54%,#000 87%);
+      color: white;
+    }
+
+    /* Formularios */
+    form{padding:20px}
+    label{font-size:14px;color:var(--black);display:block;margin-bottom:4px}
+    input,select{
+      width:100%;padding:12px;border-radius:8px;
+      border:1px solid var(--border);
+      background:var(--white);color:var(--text);margin-bottom:14px;
+      outline:none;
+    }
+    input:focus,select:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(225,29,42,.15)}
+    .resume{
+      background:#fafafa;
+      border:1px solid var(--border);
+      padding:12px;border-radius:10px;margin-bottom:16px
+    }
+
+    .submit{
+      width:100%;padding:16px;border:none;border-radius:10px;
+      background:var(--black);color:var(--white);
+      font-weight:700;font-size:17px;cursor:pointer;
+      box-shadow:0 4px 12px rgba(0,0,0,.25);transition:background .15s ease
+    }
+    .submit:hover{background:#1a1a1a}
+    .disclaimer{font-size:12px;color:var(--muted);margin-top:8px}
+    #orderForm p{color:#000}
+
+
+        /* ==== Animaciones de entrada (A11y-friendly) ==== */
+    @media (prefers-reduced-motion:no-preference){
+      .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease}
+      .reveal.is-visible{opacity:1;transform:none}
+      .fade-up{} /* por defecto */
+      .fade-down{transform:translateY(-18px)}
+      .fade-left{transform:translateX(24px)}
+      .fade-right{transform:translateX(-24px)}
+      .zoom-in{transform:scale(.96)}
+      .tilt-in{transform:perspective(800px) rotateX(8deg);transform-origin:top}
+      .reveal{transition-delay:var(--delay,0ms)}
+    }
+
+    /* Suaviza transiciones internas */
+    .card,.hero,.benefits div{will-change:transform,opacity}
+
